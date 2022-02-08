@@ -27,7 +27,7 @@ case "$1" in
 esac
 
 USER=$(whoami)
-IMAGE=ossystems/yocto-env:$version
+IMAGE=zuhauseplattform/yocto-env:$version
 
 case "$2" in
     --skip-pull)
