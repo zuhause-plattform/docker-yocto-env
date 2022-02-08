@@ -4,7 +4,7 @@ This container is self-contained and we provide the wrapper script
 inside it. To get it please run this very same container passing
 wrapper as argument. For example:
 
-    docker run ossystems/yocto-env:20.04 wrapper > ~/bin/yocto-env
+    docker run zuhauseplattform/yocto-env:20.04 wrapper > ~/bin/yocto-env
     chmod a+x ~/bin/yocto-env
 
 The generated wrapper, `yocto-env`, has the following usage message:
