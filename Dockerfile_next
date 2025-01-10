@@ -1,0 +1,18 @@
+ARG version=20.04_next
+
+FROM ossystems/yocto-env:$version
+
+# Install repo tool
+RUN apt-get update && apt-get install -y \
+     curl gnupg python3-pip dos2unix vim
+
+# Remove apt package list to reduce docker image size?
+RUN rm -rf /var/lib/apt/lists/*
+
+# install repo
+RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo && chmod a+rx /bin/repo
+RUN sed -i 's/\/usr\/bin\/env python/\/usr\/bin\/env python3/' /bin/repo
+
+# Install kas
+RUN git clone https://github.com/siemens/kas.git
+RUN cd kas && pip3 install .

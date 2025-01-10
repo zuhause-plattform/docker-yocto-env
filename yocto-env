@@ -12,7 +12,8 @@ OPTIONS
 
   version           Environment version to use. This maps to Ubuntu releases
                     and currently it provides the 14.04, 16.04, 18.04 and
-                    20.04.
+                    20.04. (Development versions prefixed with "_next" are 
+                    partially available)
 EOF
     exit 1
 }
@@ -45,6 +46,7 @@ DOCKER_EXTRA_ARGS=""
 # ssh-agent support
 [ -n "$SSH_AUTH_SOCK" ] && DOCKER_EXTRA_ARGS="$DOCKER_EXTRA_ARGS -v $SSH_AUTH_SOCK:/ssh-agent --env=SSH_AUTH_SOCK=/ssh-agent"
 
+set -x
 docker run \
        --rm \
        -t \
