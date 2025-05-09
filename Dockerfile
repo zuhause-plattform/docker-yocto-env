@@ -1,4 +1,3 @@
-
 ARG version=18.04
 
 FROM ossystems/yocto-env:$version
@@ -12,4 +11,5 @@ RUN sed -i 's/\/usr\/bin\/env python/\/usr\/bin\/env python3/' /bin/repo
 RUN pipx ensurepath
 
 # Install kas
+ENV PIPX_BIN_DIR="/usr/local/bin"
 RUN pipx install kas
